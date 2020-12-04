@@ -1,6 +1,6 @@
-package com.beshoy.nytimes.features.domain
+package com.beshoy.nytimes.features.home.domain
 
-import com.beshoy.nytimes.features.model.HomeRepo
+import com.beshoy.nytimes.features.home.model.HomeRepo
 import com.beshoy.nytimes.models.ArticleMediaModel
 import com.beshoy.nytimes.models.NyTimesArticleModel
 import com.beshoy.nytimes.remote.BaseResponseModel

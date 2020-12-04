@@ -1,10 +1,10 @@
-package com.beshoy.nytimes.features.presentation
+package com.beshoy.nytimes.features.home.presentation
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.beshoy.nytimes.base.BaseViewModel
-import com.beshoy.nytimes.features.domain.HomeUseCase
+import com.beshoy.nytimes.features.home.domain.HomeUseCase
 import com.beshoy.nytimes.models.NyTimesArticleModel
 import com.beshoy.nytimes.remote.error.ApiErrorModel
 import com.beshoy.nytimes.utils.SingleLiveEvent

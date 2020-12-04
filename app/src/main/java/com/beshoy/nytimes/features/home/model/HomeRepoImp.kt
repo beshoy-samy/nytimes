@@ -1,4 +1,4 @@
-package com.beshoy.nytimes.features.model
+package com.beshoy.nytimes.features.home.model
 
 import com.beshoy.nytimes.remote.BaseResponseModel
 import com.beshoy.nytimes.remote.error.ApiErrorModel

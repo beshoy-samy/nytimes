@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="position"
+            type="Integer" />
+
+        <variable
+            name="clickListener"
+            type="com.beshoy.nytimes.features.widgets.list_articles.ArticlesItemClickListener" />
+
+        <variable
+            name="model"
+            type="com.beshoy.nytimes.models.NyTimesArticleModel" />
+
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{(view) -> clickListener.merchantOfferItemClicked(model, position)}"
+        app:cardElevation="0dp"
+        tools:context=".features.widgets.list_articles.ListArticlesWidget">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/padding_small_normal"
+            android:paddingTop="@dimen/padding_small"
+            android:paddingEnd="@dimen/padding_small_normal"
+            android:paddingBottom="@dimen/padding_small">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/article_icon"
+                image_url="@{model.primaryIcon}"
+                android:layout_width="@dimen/item_article_icon_size"
+                android:layout_height="@dimen/item_article_icon_size"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearanceOverlay="@style/normal_rounded_corners_shape_appearance"
+                tools:src="@drawable/ic_loading_image" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_small"
+                android:layout_marginEnd="@dimen/margin_small"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/arrow_forward"
+                app:layout_constraintStart_toEndOf="@+id/article_icon"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/article_title_tv"
+                    style="@style/Theme.NYTimes.ListPrimaryTitleStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:text="@{model.title}"
+                    android:textSize="@dimen/text_normal"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@id/article_author_tv"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Article title" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/article_author_tv"
+                    style="@style/Theme.NYTimes.ListDescStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_tiny"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="@{model.byline}"
+                    app:layout_constraintBottom_toTopOf="@id/article_date_tv"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/article_title_tv"
+                    tools:text="Author" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/article_date_tv"
+                    style="@style/Theme.NYTimes.ListDescStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_tiny"
+                    android:drawablePadding="@dimen/padding_tiny"
+                    android:gravity="center_vertical"
+                    android:text="@{model.publishedDate}"
+                    android:textStyle="bold"
+                    app:drawableStartCompat="@drawable/ic_calendar"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/article_author_tv"
+                    tools:text="Article date" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/arrow_forward"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_arrow_forward" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

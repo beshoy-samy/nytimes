@@ -1,6 +1,6 @@
 package com.beshoy.nytimes.koin
 
-import androidx.databinding.library.BuildConfig
+import com.beshoy.nytimes.BuildConfig
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.Interceptor

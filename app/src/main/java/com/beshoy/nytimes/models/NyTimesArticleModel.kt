@@ -1,5 +1,9 @@
 package com.beshoy.nytimes.models
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
 data class NyTimesArticleModel(
     val articleUrl: String,
     val id: Long,
@@ -13,4 +17,6 @@ data class NyTimesArticleModel(
     val title: String,
     val abstract: String,
     val mediaModels: List<ArticleMediaModel>
-)
+) : Parcelable {
+    val primaryIcon: String? = mediaModels.firstOrNull()?.url
+}

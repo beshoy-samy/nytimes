@@ -1,6 +1,5 @@
 package com.beshoy.nytimes
 
-import androidx.multidex.BuildConfig
 import androidx.multidex.MultiDexApplication
 import com.beshoy.nytimes.koin.homeModule
 import com.beshoy.nytimes.koin.networkModule

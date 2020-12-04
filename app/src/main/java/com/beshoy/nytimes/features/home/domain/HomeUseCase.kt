@@ -1,4 +1,4 @@
-package com.beshoy.nytimes.features.domain
+package com.beshoy.nytimes.features.home.domain
 
 import com.beshoy.nytimes.models.NyTimesArticleModel
 import com.beshoy.nytimes.remote.TimePeriod

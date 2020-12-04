@@ -11,14 +11,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:context=".features.HomeActivity">
+        tools:context=".features.home.HomeActivity">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_view"
+        <com.beshoy.nytimes.features.widgets.list_articles.ListArticlesWidget
+            android:id="@+id/articles_widget"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:clipToPadding="false"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+            tools:itemCount="10"
+            tools:listitem="@layout/item_list_article" />
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 </layout>
