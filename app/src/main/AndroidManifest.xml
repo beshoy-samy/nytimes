@@ -15,6 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NYTimes"
         tools:targetApi="n">
+        <activity android:name=".features.details.DetailsActivity"></activity>
         <activity android:name=".features.home.HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

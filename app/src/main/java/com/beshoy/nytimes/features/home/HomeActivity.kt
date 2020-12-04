@@ -5,6 +5,7 @@ import androidx.core.content.ContextCompat
 import com.beshoy.nytimes.R
 import com.beshoy.nytimes.base.BaseActivity
 import com.beshoy.nytimes.databinding.ActivityHomeBinding
+import com.beshoy.nytimes.features.details.DetailsActivity
 import com.beshoy.nytimes.features.home.presentation.HomeViewModel
 import com.beshoy.nytimes.remote.error.getErrorMessage
 import com.google.android.material.snackbar.Snackbar
@@ -32,7 +33,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>() {
 
     private fun setupArticlesList() {
         binding.articlesWidget.articleClickListener = { article, position ->
-            Timber.i("article clicked $article")
+            DetailsActivity.start(this, article)
         }
     }
 
