@@ -1,3 +1,10 @@
 <resources>
+
     <string name="app_name">NY Times</string>
+
+    <string name="network_error">Network not found</string>
+    <string name="timeout_error">Timeout error</string>
+    <string name="notfound_error">Not found error</string>
+    <string name="not_authorized_error">Your session has been expired please, login first</string>
+    <string name="unknown_error">An error has occurred</string>
 </resources>
