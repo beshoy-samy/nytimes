@@ -1,6 +1,6 @@
 package com.beshoy.nytimes.models
 
-data class NyTimeArticleModel(
+data class NyTimesArticleModel(
     val articleUrl: String,
     val id: Long,
     val source: String,

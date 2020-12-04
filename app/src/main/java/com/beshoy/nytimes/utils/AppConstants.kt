@@ -5,5 +5,6 @@ abstract class AppConstants {
     companion object {
 
         const val MY_API_KEY = "4J0zm9K7kqIHnreY7xxyXQ7LGJlr2Bio"
+        const val NOT_FOUND = -1L
     }
 }
