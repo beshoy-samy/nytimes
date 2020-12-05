@@ -17,6 +17,12 @@ class DetailsActivity : BaseActivity<ActivityDetailsBinding, DetailsViewModel>()
 
     override fun bindViews(savedInstanceState: Bundle?) {
         article = requireNotNull(intent?.getParcelableExtra(ARTICLE_KEY))
+        binding.article = article
+        setupToolbar()
+    }
+
+    private fun setupToolbar() {
+        binding.toolbar.setNavigationOnClickListener { onBackPressed() }
     }
 
     override fun getLayoutResId(): Int = R.layout.activity_details

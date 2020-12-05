@@ -1,5 +1,8 @@
 package com.beshoy.nytimes.utils
 
+import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import androidx.annotation.DrawableRes
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -16,4 +19,9 @@ fun RecyclerView.setDivider(@DrawableRes drawableRes: Int, orientation: Int) {
         divider.setDrawable(it)
         addItemDecoration(divider)
     }
+}
+
+fun Context.openExternalUrl(url: String) {
+    val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+    this.startActivity(intent)
 }
