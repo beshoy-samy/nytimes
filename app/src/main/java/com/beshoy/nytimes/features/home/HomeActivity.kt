@@ -7,6 +7,7 @@ import com.beshoy.nytimes.base.BaseActivity
 import com.beshoy.nytimes.databinding.ActivityHomeBinding
 import com.beshoy.nytimes.features.details.DetailsActivity
 import com.beshoy.nytimes.features.home.presentation.HomeViewModel
+import com.beshoy.nytimes.remote.error.ApiErrorModel
 import com.beshoy.nytimes.remote.error.getErrorMessage
 import com.google.android.material.snackbar.Snackbar
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -45,10 +46,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>() {
         })
 
         viewModel.showError.observe(this, {
-            it?.let { error ->
-                Snackbar.make(binding.root, error.getErrorMessage(this), Snackbar.LENGTH_LONG)
-                    .show()
-            }
+            it?.let { error -> showError(error) }
         })
 
         viewModel.showProgress.observe(this, {
@@ -56,6 +54,17 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>() {
                 binding.swipeRefresh.isRefreshing = showProgress
             }
         })
+    }
+
+    private fun showError(error: ApiErrorModel) {
+        Snackbar.make(binding.root, error.getErrorMessage(this), Snackbar.LENGTH_INDEFINITE)
+            .also { snackbar ->
+                snackbar.setAction(R.string.retry) {
+                    snackbar.dismiss()
+                    viewModel.getMostPopularArticles()
+                }
+            }
+            .show()
     }
 
     override fun getLayoutResId(): Int = R.layout.activity_home
